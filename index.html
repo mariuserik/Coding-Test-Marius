@@ -71,15 +71,37 @@
 			</script>
 				
 			<script type="text/x-handlebars" id="detailed" >
-				<h3>ID: {{id}}</h3>
-				<h3>Sport TYPE: {{sport_type_id}}</h3>
-				<h3>Start Time: {{start_time}}</h3>
-				<h3>End Time: {{end_time}}</h3>
-				<h3>Duration: {{duration}}</h3>
-				<h3>Distance: {{distance}}</h3>
-					
+			
+			<table class="table">
+			<tr>
+				<td><h4>ID:</h4></td>
+				<td><h4>{{id}}</h4></td>
+			</tr>
+			<tr>
+				<td><h4>Sport TYPE:</h4></td>
+				<td><h4>{{sport_type_id}}</h4></td>
+			</tr>
+			<tr>
+				<td><h4>Start Time:</h4></td>
+				<td><h4>{{date start_time}}</h4></td>
+			</tr>
+			<tr>
+				<td><h4>End Time:</h4></td>
+				<td><h4>{{date end_time}}</h4></td>
+			</tr>
+			<tr>
+				<td><h4>Duration:</h4></td>
+				<td><h4>{{duration}}</h4></td>
+			</tr>
+			<tr>
+				<td><h4>Distance:</h4></td>
+				<td><h4>{{distance}}</h4></td>
+			</tr>
+			
+			</table>
+		
 				{{#if encoded_trace}}
-					<h3>Encoded Trace:</h3>
+					<h4>Encoded Trace:</h4>
 						<div id="googleTrace" class="form-group">
 							{{view App.Trace valueBinding="encoded_trace"}}
 						</div>
