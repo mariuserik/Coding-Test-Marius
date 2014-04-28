@@ -1,0 +1,64 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="utf-8">
+	<title>RUNTASTIC SPORT TEST</title>
+	  <link rel="stylesheet" href="css/normalize.css">
+	  <link rel="stylesheet" href="css/style.css">
+	  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	  <link href="css/bootstrap.css" rel="stylesheet">
+	</head>
+		<body>
+			<script type="text/x-handlebars">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<a class="brand" href="#">RUNTASTIC SPORT TEST</a>
+					</div>
+				</div>
+
+				{{outlet}}
+			</script>
+
+			<script type="text/x-handlebars" id="index">
+			
+				<div class="span9">
+				 {{outlet}}  
+				</div>
+			
+				<table class="table table-striped">    
+					<thead>
+						<tr>
+							<tr>
+								<td>ID</td>
+								<td>Start Time</td>
+								<td>End Time</td>
+								<td>Duration</td>
+								<td>Distance</td>
+								<td>Sport Type</td>
+								<td>Encoded Trace</td>
+							</tr>
+						</tr>
+					</thead>
+			</table>
+			</script>
+				
+			<script type="text/x-handlebars" id="detailed" >
+				<h3>ID: {{id}}</h3>
+				<h3>Sport TYPE: {{sport_type_id}}</h3>
+				<h3>Start Time: {{start_time}}</h3>
+				<h3>End Time: {{end_time}}</h3>
+				<h3>Duration: {{duration}}</h3>
+				<h3>Distance: {{distance}}</h3>
+				<hr>
+			</script>
+				
+			<script src="js/libs/jquery-1.10.js"></script>
+			<script src="js/libs/handlebars-1.1.2.js"></script>
+			<script src="js/libs/ember-1.5.1.js"></script>
+
+			<script type="text/javascript" src="js/app.js"></script>
+			<script type="text/javascript" src="js/app_controllers.js"></script>
+			<script type="text/javascript" src="js/app_routes.js"></script>
+			<script type="text/javascript" src="js/app_helpers.js"></script>
+		</body>
+	</html>
