@@ -1,7 +1,7 @@
 ﻿(function () {
     App.IndexRoute = Ember.Route.extend({
         model: function () {
-
+            return App.SportsList.all();
         }
     });
 	
@@ -13,7 +13,7 @@
 	
 	App.DetailedRoute = Ember.Route.extend({
 		model: function(params) {
-
+			return App.SportsList.unique(params.detailed_id);
 		}
 	});
 })();

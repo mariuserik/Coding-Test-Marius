@@ -29,16 +29,44 @@
 					<thead>
 						<tr>
 							<tr>
-								<td>ID</td>
-								<td>Start Time</td>
-								<td>End Time</td>
-								<td>Duration</td>
-								<td>Distance</td>
-								<td>Sport Type</td>
-								<td>Encoded Trace</td>
+								<td {{action sortColumn 'id'}}>ID</td>
+								<td {{action sortColumn 'start_time'}}>Start Time</td>
+								<td {{action sortColumn 'end_time'}}>End Time</td>
+								<td {{action sortColumn 'duration'}}>Duration</td>
+								<td {{action sortColumn 'distance'}}>Distance</td>
+								<td {{action sortColumn 'sport_type_id'}}>Sport Type</td>
+								<td {{action sortColumn 'encoded_trace'}}>Encoded Trace</td>
 							</tr>
 						</tr>
-					</thead>
+					</thead>			
+					<tbody>
+						{{#each model.itens}}
+							{{#link-to 'detailed' this tagName="tr"}}
+								<td>{{id}}</td>
+								<td>{{date start_time}}</td>
+								<td>{{date end_time}}</td>
+								<td>{{duration}}</td>
+								<td>{{distance}}</td>
+								<td>{{sport_type_id}}</td>
+								<td>{{substringHelper encoded_trace}}</td>
+							{{/link-to}}
+						{{/each}}
+					</tbody>
+			  <tfoot>
+					<tr>
+						<td colspan="8">
+							<ul class="pagination pull-right pager">
+								<li {{action firstPage}} class="previous"><a href="#">&laquo; First</a></li>
+								<li {{action back}} class="pagination-btn"><span>&lt;</span></li>
+								{{#each model.pagination}}
+									<li {{action gotoPage number}} {{bind-attr class="isActive:active"}}><span class="pagination-btn">{{number}}</span></li>
+								{{/each}}
+								<li {{action next}} class="pagination-btn"><span>&gt;</span></li>
+								<li {{action lastPage}} class="next"><a href="#">Last &raquo;</a></li>
+							</ul>
+						</td>
+					</tr>
+				</tfoot>
 			</table>
 			</script>
 				
@@ -49,13 +77,16 @@
 				<h3>End Time: {{end_time}}</h3>
 				<h3>Duration: {{duration}}</h3>
 				<h3>Distance: {{distance}}</h3>
+					
 				<hr>
 			</script>
 				
 			<script src="js/libs/jquery-1.10.js"></script>
 			<script src="js/libs/handlebars-1.1.2.js"></script>
 			<script src="js/libs/ember-1.5.1.js"></script>
-
+			<script src="http://momentjs.com/downloads/moment-with-langs.js"></script>
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
 			<script type="text/javascript" src="js/app.js"></script>
 			<script type="text/javascript" src="js/app_controllers.js"></script>
 			<script type="text/javascript" src="js/app_routes.js"></script>
