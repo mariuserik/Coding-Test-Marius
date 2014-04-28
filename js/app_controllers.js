@@ -48,6 +48,9 @@
             });
         },
         unique: function (id) {
+	
+		var toReturn;
+	
             var itens = App.SportsList.itens;
 
             if (itens.length == 0) {
@@ -56,8 +59,16 @@
                     return resp.run_session;
                 });
             } else {
-                return itens.findBy('id', id);
+			
+			$.each(itens, function( i, l ){
+			  if (l.id == id)
+			  {
+				toReturn = l; 
+			  }
+			});
             }
+			
+			return toReturn;
         }
     });
 	
